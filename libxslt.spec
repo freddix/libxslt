@@ -1,7 +1,7 @@
 Summary:	XSLT processor
 Name:		libxslt
 Version:	1.1.28
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries
 Source0:	ftp://xmlsoft.org/libxml2/%{name}-%{version}.tar.gz
