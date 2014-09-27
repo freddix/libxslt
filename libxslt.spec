@@ -1,7 +1,8 @@
+# based on PLD Linux spec git://git.pld-linux.org/packages/.git
 Summary:	XSLT processor
 Name:		libxslt
 Version:	1.1.28
-Release:	2
+Release:	3
 License:	MIT
 Group:		Libraries
 Source0:	ftp://xmlsoft.org/libxml2/%{name}-%{version}.tar.gz
@@ -67,12 +68,13 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -rf $RPM_BUILD_ROOT%{_docdir}/%{name}-python-%{version}
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}-python-%{version}
 
 %py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
 %py_comp $RPM_BUILD_ROOT%{py_sitedir}
 
-rm -f $RPM_BUILD_ROOT%{py_sitedir}/*.{py,la,a}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+%{__rm} $RPM_BUILD_ROOT%{py_sitedir}/*.{py,la}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
